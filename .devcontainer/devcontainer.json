@@ -1,0 +1,41 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "HuggingFace",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"runArgs": [
+		"--env-file",
+		".env"
+	],
+	// Include a list of VSCode extensions that are recommended for this project.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"charliermarsh.ruff",
+				"ms-vscode.live-server"
+			]
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.cache/huggingface,target=/opt/hf,type=bind,consistency=cached"
+	],
+	// Set the environment variables for the dev container.
+	"containerEnv": {
+		"HF_HOME": "/opt/hf",
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "uv venv && . .venv/bin/activate && uv sync --dev && uv pip install -e . && echo 'if [ -f .venv/bin/activate ]; then source .venv/bin/activate; fi' >> ~/.bashrc",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
