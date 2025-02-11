@@ -1,0 +1,29 @@
+[project]
+name = "huggingface_workspace"
+version = "0.1.0"
+description = "A workspace for HuggingFace work."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "huggingface-hub>=0.28.1",
+    "transformers>=4.48.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "pytest>=8.3.4",
+    "ruff>=0.9.4",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.3.4"
+addopts = "-ra -q"
+testpaths = ["tests"]
+log_cli = true
+log_cli_level = "DEBUG"
+log_cli_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
