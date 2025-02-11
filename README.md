@@ -1,6 +1,6 @@
 # HuggingFace Workspace
 
-Welcome to the Agents Course workspace. This repository is configured with a development container (devcontainer) that helps standardize the development environment and streamline onboarding.
+Welcome to your local huggingface workspace. This repository is configured with a development container (devcontainer) that helps standardize the development environment and streamline onboarding.
 
 ## Devcontainer
 
