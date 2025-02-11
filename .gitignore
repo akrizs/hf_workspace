@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+
+# Virtual environments
+.venv
+
+# Sensitive files
+.env
+.secret
+.secrets
+
+# Other files to ignore!
+src/debugging.ipynb
